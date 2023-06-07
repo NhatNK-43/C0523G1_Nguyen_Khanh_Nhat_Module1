@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>exercise1</title>
+    <style>
+        caption{
+            font-size: 15px;
+            color: red;
+            text-align: left;
+            padding-top: 50px;
+            padding-bottom: 10px;
+        }
+        th{
+            text-align: left;
+            color: blue;
+            width: 80px;
+            height: 20px;
+        }
+        input{
+            text-align: right;
+            width: 80px;
+        }
+        td{
+            border: 2px inset;
+        }
+        button{
+            border: 2px outset yellow;
+            width: 76px;
+        }
+        b{
+            color: green;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <caption>Bài 1. Tính điểm trung bình</caption>
+        <tr>
+            <th>Physics</th>
+            <td><input type="number" id="physics"></td>
+        </tr>
+        <tr>
+            <th>Chemistry</th>
+            <td><input type="number" id="chemistry"></td>
+        </tr>
+        <tr>
+            <th>Biology</th>
+            <td><input type="number" id="biology"></td>
+        </tr>
+        <tr>
+            <th>Average</th>
+            <td style="text-align: right"><b id="resultAverage" style="color: green"></b></td>
+        </tr>
+        <tr>
+            <td><button type="button" id="average" onclick="resultAverage()">Calculate</button></td>
+        </tr>
+    </table>
+
+    <table>
+        <caption>Bài 2. Chuyển độ C sang độ F</caption>
+        <tr>
+            <td><button type="button" id="convert" onclick="convert()">Convert</button></td>
+            <td style="border: none"><input type="number" id="celsius" style="width: 55px">&deg;C =&nbsp;</td>
+            <td style="border: none"><b id="fahrenheit" style="width: 55px"></b>&deg;F</td>
+        </tr>
+    </table>
+    <table>
+        <caption>Bài 3, 4. Tính diện tích, chu vi hình tròn</caption>
+        <tr>
+            <th>Radius</th>
+            <td><input type="number" id="radius"></td>
+        </tr>
+        <tr>
+            <th>Area</th>
+            <td style="text-align: right"><b id="resultarea"></b></td>
+        </tr>
+        <tr>
+            <th>Perimeter</th>
+            <td style="text-align: right"><b id="resultperimeter"></b></td>
+        </tr>
+        <tr>
+            <td><button type="button" onclick="circleArea_Perimeter()">Calculate</button></td>
+        </tr>
+    </table>
+
+</body>
+<script>
+    function resultAverage(){
+        let getPhysics = document.getElementById('physics').value;
+        let getChemistry = document.getElementById('chemistry').value;
+        let getBiology = document.getElementById('biology').value;
+        let getAverage = (parseFloat(getPhysics)+parseFloat(getChemistry)+parseFloat(getBiology))/3;
+        document.getElementById('resultAverage').innerText = getAverage.toFixed(3);
+    }
+    function convert(){
+        let getCelsius = document.getElementById('celsius').value;
+        let getFahrenheit = 9*parseFloat(getCelsius)/5+32
+        document.getElementById('fahrenheit').innerText= getFahrenheit.toFixed(2);
+    }
+    function circleArea_Perimeter(){
+        const Pi = 3.1416;
+        let getRadius = document.getElementById('radius').value;
+        let getArea = Pi * parseFloat(getRadius) * parseFloat(getRadius);
+        let getPerimeter = 2 * Pi * parseFloat(getRadius);
+        document.getElementById('resultarea').innerText = getArea.toFixed(3)
+        document.getElementById('resultperimeter').innerText = getPerimeter.toFixed(3);
+    }
+</script>
+</html>
