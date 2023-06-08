@@ -61,8 +61,8 @@
     <table>
         <caption>Bài 2. Chuyển độ C sang độ F</caption>
         <tr>
-            <td><button type="button" id="convert" onclick="convert()">Convert</button></td>
-            <td style="border: none"><input type="number" id="celsius" style="width: 55px">&deg;C =&nbsp;</td>
+<!--            <td><button type="button" id="convert" onclick="convert()">Convert</button></td>-->
+            <td onchange="convert()" style="border: none"><input type="number" id="celsius" style="width: 55px">&deg;C =&nbsp;</td>
             <td style="border: none"><b id="fahrenheit" style="width: 55px"></b>&deg;F</td>
         </tr>
     </table>
@@ -92,7 +92,7 @@
         let getChemistry = document.getElementById('chemistry').value;
         let getBiology = document.getElementById('biology').value;
         let getAverage = (parseFloat(getPhysics)+parseFloat(getChemistry)+parseFloat(getBiology))/3;
-        document.getElementById('resultAverage').innerText = getAverage.toFixed(3);
+        document.getElementById('resultAverage').innerText = getAverage.toFixed(2);
     }
     function convert(){
         let getCelsius = document.getElementById('celsius').value;

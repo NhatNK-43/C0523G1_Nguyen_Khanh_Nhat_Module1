@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>exercise2</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>Amount</th>
+            <th>From Currency</th>
+            <th>To Currency</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td><input type="number" id="valueCurrency"></td>
+            <td>
+                <select id="selectFrom">
+                    <option>VND</option>
+                    <option>USD</option>
+                </select>
+            </td>
+            <td>
+                <select id="selectTo">
+                    <option>VND</option>
+                    <option>USD</option>
+                </select>
+            </td>
+            <td><button type="button" onclick="convert()">Convert</button></td>
+        </tr>
+        <tr>
+            <td><b style="color: blue">Result: &nbsp;</b><b style="color: blue" id="result"></b></td>
+        </tr>
+    </table>
+</body>
+<script>
+    function convert(){
+        let getFrom = document.getElementById('selectFrom').value;
+        let getTo = document.getElementById('selectTo').value;
+        let valueCurrency = document.getElementById('valueCurrency').value;
+        let result;
+        if (getFrom===getTo){
+            document.getElementById('result').innerText  = valueCurrency;
+        }
+        else if (getFrom === 'USD'){
+            if (getTo === 'VND'){
+                result = parseFloat(valueCurrency)*23000;
+                document.getElementById('result').innerText = result;
+            }
+        }
+        else {
+            result = parseFloat(valueCurrency)/23000;
+            document.getElementById('result').innerText = result;
+        }
+    }
+</script>
+</html>
