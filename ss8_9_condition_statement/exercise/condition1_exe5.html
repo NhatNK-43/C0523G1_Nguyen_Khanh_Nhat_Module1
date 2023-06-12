@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Academic ranking</title>
+</head>
+<body>
+    <script>
+        let a = parseFloat(prompt("Enter midterm exam score:"));
+        let b = parseFloat(prompt("Enter final exam score:"));
+        let semesterGPA = a*0.3+b*0.7;
+        if (semesterGPA<5){
+            alert("Weak");
+        } else if (semesterGPA<6.5){
+            alert('Average');
+        } else if (semesterGPA<8){
+            alert('Good');
+        } else if (semesterGPA<9.5){
+            alert('Very good');
+        } else {
+            alert('Excellent');
+        }
+    </script>
+</body>
+</html>

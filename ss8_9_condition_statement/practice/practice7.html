@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <title>practice7</title>
 </head>
-<body>
-    <form>
-        <img src="../../img/nobita.png" alt="nobita.png" id="nobita">
-    </form>
+<body onload="docReady()">
+        <img src="../../img/nobita.png" alt="nobita.png" id="nobita" style="position: absolute; left: 0; top: 0">
+
+</body>
 <script>
     function upArrowPressed(){
-       let element = document.getElementById('nobita');
-       element.style.top = parseInt(element.style.top) - 5 + 'px';
+        let element = document.getElementById('nobita');
+        element.style.top = parseInt(element.style.top) - 5 + 'px';
     }
     function downArrowPressed(){
         let element = document.getElementById('nobita');
@@ -45,5 +45,4 @@
         window.addEventListener('keydown', moveSelection)
     }
 </script>
-</body>
 </html>

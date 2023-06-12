@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>condition2_exe10</title>
+</head>
+<body>
+    <script>
+        // Bài 10: Viết chương trình tính thuế thu nhập cá nhân.
+        // Bậc 1: Cho kWh từ 0 đến 50: 1,484 đ/kWh.
+        // Bậc 2: Cho kWh từ 51 đến 100: 1,533 đ/kWh.
+        // Bậc 3: Cho kWh từ 101 đến 200: 1,786 đ/kWh.
+        // Bậc 4: Cho kWh từ 201 đến 300: 2,242 đ/kWh
+        // Bậc 5: Cho kWh từ 301 đến 400: 2,503 đ/kWh
+        // Bậc 6: Cho kWh từ 401 trở lên: 2,587 đ/kWh
+        let soChudientruoc = parseInt(prompt("Nhập số chữ điện trước (kWh):"));
+        let soChudiensau = parseInt(prompt("Nhập số chữ điện sau (kWh):"));
+        let soChudien = soChudiensau - soChudientruoc;
+        let tienDien;
+        if (soChudien<=50){
+            tienDien = soChudien * 1484;
+        } else if (soChudien<=100) {
+            tienDien = 50 * 1484 + (soChudien-50)*1533;
+        } else if (soChudien<=200) {
+            tienDien = 50 * 1484 + 50 * 1533 + (soChudien-100)*1786;
+        } else if (soChudien<=300) {
+            tienDien = 50 * 1484 + 50 * 1533 + 100 * 1786 + (soChudien-200)*2242;
+        } else if (soChudien<=400) {
+            tienDien = 50 * 1484 + 50 * 1533 + 100 * 1786 + 100 * 2242 + (soChudien-300)*2503;
+        } else {
+            tienDien = 50 * 1484 + 50 * 1533 + 100 * 1786 + 100 * 2242 + 100 * 2503 + (soChudien-400)*2587;
+        }
+        alert(tienDien+' là số tiền điện phải trả');
+    </script>
+</body>
+</html>

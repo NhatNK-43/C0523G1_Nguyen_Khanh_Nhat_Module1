@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>condition2_exe11</title>
+</head>
+<body>
+    <script>
+        // Bài 11: Viết chương trình tính thuế thu nhập cá nhân.
+        // Bậc	Thu nhập tháng	        Số thuế phải nộp
+        // 1	TN <= 5tr	            TN x 5%
+        // 2	5tr < TN <= 10tr	    TN x 10% - 0.25tr
+        // 3	10tr < TN <= 18tr	    TN x 15% - 0.75tr
+        // 4	18tr < TN <= 32tr	    TN x 20% - 1.65tr
+        // 5	32tr < TN <= 52tr   	TN x 25% - 3.25tr
+        // 6	52tr < TN <= 80tr	    TN x 30% - 5.85tr
+        // 7	TN > 80tr	            TN x 35% - 9.85tr
+        let thuNhap = parseInt(prompt("Thu nhập 1 tháng (VND):"));
+        let thueThunhap;
+        if (thuNhap<=5000000){
+            thueThunhap = thuNhap * 0.05;
+        } else if (thuNhap<=10000000) {
+            thueThunhap = thuNhap * 0.1 - 250000;
+        } else if (thuNhap<=18000000) {
+            thueThunhap = thuNhap * 0.15 - 750000;
+        } else if (thuNhap<=32000000) {
+            thueThunhap = thuNhap * 0.2 - 1650000;
+        } else if (thuNhap<=52000000) {
+            thueThunhap = thuNhap * 0.25 - 3250000;
+        } else if (thuNhap<=80000000) {
+            thueThunhap = thuNhap * 0.3 - 5850000;
+        }
+        else {
+            thueThunhap = thuNhap * 0.35 - 9850000;
+        }
+        alert(thueThunhap+' là số tiền thuế thu nhập phải đóng');
+    </script>
+</body>
+</html>

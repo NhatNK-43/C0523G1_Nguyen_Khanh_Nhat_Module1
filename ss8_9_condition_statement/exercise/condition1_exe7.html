@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>condition1_exe7</title>
+</head>
+<body>
+<!--Bài 7: Tính cước điện thoại cho một hộ gia đình với các thông số đã cho-->
+    <script>
+        let soPhut = parseFloat(prompt("Số phút gọi:"));
+        let soTien, sum;
+        const phiCodinh = 25000;
+        if (soPhut>200){
+            soTien = 50*600+150*400+(soPhut-200)*200;
+        } else if (soPhut>50){
+            soTien = 50*600+(soPhut-50)*400;
+        } else {
+            soTien = soPhut*600;
+        }
+        sum = phiCodinh + soTien;
+        alert('Số tiền điện thoại phải thanh toán : '+sum);
+    </script>
+</body>
+</html>
