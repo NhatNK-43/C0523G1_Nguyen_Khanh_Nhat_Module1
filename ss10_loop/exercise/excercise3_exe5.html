@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>exercise3_exe5</title>
+    <style>
+    </style>
+</head>
+<body>
+<script>
+    let numberFirst = 0, numberLast = 1;
+    let sum =0;
+    for (let i = 1; i <=20; i++) {
+        sum +=numberFirst;
+        fib = numberFirst + numberLast;
+        numberFirst = numberLast;
+        numberLast = fib;
+    }
+    document.write(sum + '<br>');
+</script>
+</body>
+</html>

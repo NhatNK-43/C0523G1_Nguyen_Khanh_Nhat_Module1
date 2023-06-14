@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>excercise4_exe5</title>
+</head>
+<body>
+<script>
+    // Bài 5: Viết chương trình tính lãi ngân hàng (lãi mẹ đẻ lại con)
+    // khi biết số tiền ban đầu, số tháng cho vay và lãi xuất hàng tháng.
+    let tienGoc = parseInt(prompt("Nhập số tiền gửi (VND):"));
+    let phanTram = parseInt(prompt("Nhập % lãi suất hàng tháng:"));
+    let soThang = parseInt(prompt("Số tháng cho vay:"))
+    let laiSuat;
+    let tienLai = tienGoc;
+    for (let i=1; i<=soThang;i++){
+        tienLai+=tienLai*phanTram/100;
+    }
+    laiSuat = tienLai-tienGoc;
+    alert('Lãi suất sau '+soThang+' tháng là '+laiSuat);
+</script>
+</body>
+</html>

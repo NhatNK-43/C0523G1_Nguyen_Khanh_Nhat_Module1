@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>exercise4_exe1</title>
+    <style>
+    </style>
+</head>
+<body>
+<script>
+    //Bài 1. In dãy Fibonaci
+    let numberFirst = 0, numberLast = 1;
+    let fib;
+    let number;
+    do {
+        number = +prompt("Bạn muốn in ra bao nhiêu số trong dãy số Fibonaci?");
+        if (number <= 0) {
+            alert('Vui lòng nhập số lớn hơn 0');
+        }
+    } while (number <= 0)
+
+    for (let i = 1; i <= number; i++) {
+        document.write(numberFirst + ' ');
+        fib = numberFirst + numberLast;
+        numberFirst = numberLast;
+        numberLast = fib;
+    }
+</script>
+</body>
+</html>

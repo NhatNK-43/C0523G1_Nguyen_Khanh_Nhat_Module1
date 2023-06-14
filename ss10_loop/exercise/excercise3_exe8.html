@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>exercise3_exe8</title>
+    <style>
+    </style>
+</head>
+<body>
+<button onclick="guess()" id="button">Play</button>
+<script>
+    function guess() {
+        let i;
+        for (i=1; i<=3; i++){
+            let min = +prompt("Nhập khoảng muốn đoán - khoảng trước:");
+            let max = +prompt("Nhập khoảng muốn đoán - khoảng sau:");
+            let result;
+            result = Math.floor(Math.random() * (max - min+1)) + min;
+            let number = +prompt("Nhập số muốn đoán trong khoảng từ: "+min+' đến '+max);
+            if (number===result){
+                alert('Chúc mừng, bạn đã dự đoán chính xác!');
+                break;
+            } else {
+                let l = 3-i;
+                alert('Rất tiếc. Bạn đã dự đoán sai. Bạn còn '+l+' lượt chơi');
+            }
+        }
+    }
+</script>
+</body>
+</html>

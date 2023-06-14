@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>exercise2</title>
+    <style>
+    </style>
+</head>
+<body>
+<script>
+    // let number;
+    // let count=0, prime = 2;
+    // do {
+    //     number = +prompt('Số lượng số nguyên tố đầu tiên cần in:');
+    //     if (number<1){
+    //         alert('Số lượng nhập phải lớn hơn 0. Vui lòng nhập lại!');
+    //     }
+    // }while (number<1);
+    // while (count<number){
+    //     if (checkPrime(prime)===prime){
+    //         document.write(prime+'<br>');
+    //         count++;
+    //     }
+    //     prime++;
+    // }
+    // function checkPrime(n) {
+    //     let count1=0;
+    //     for (let i = 2; i<=n/2; i++){
+    //         if(n%i===0){
+    //             count1++;
+    //         }
+    //     }
+    //     if (count1 ===0){
+    //         return n;
+    //     } else return 0;
+    // }
+    let number = +prompt('Số lượng nguyên tố đầu tiên cần hiển thị:')
+    let count1 =0;
+    for (let i=2; count1<number; i++){
+        let count = 0;
+        for (let j=1;j<=i;j++){
+            if (i%j===0){
+                count++;
+            }
+        }
+        if (count===2){
+            document.write(i+'<br>');
+            count1++;
+        }
+    }
+    // let number = +prompt('Số lượng nguyên tố đầu tiên cần hiển thị:')
+    // let count1 =0;
+    // for (let i=2; count1<number; i++){
+    //     if (checkPrime(i)===i){
+    //         document.write(i+'<br>');
+    //         count1++;
+    //     }
+    // }
+    // function checkPrime(n){
+    //     let count=0;
+    //     for (let j=2;j<=n/2;j++){
+    //         if (n%j===0){
+    //             count++;
+    //         }
+    //     }
+    //     if (count===0){
+    //         return(n);
+    //     } else return 0;
+    // }
+</script>
+</body>
+</html>
