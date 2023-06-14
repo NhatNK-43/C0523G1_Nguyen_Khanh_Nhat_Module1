@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>practice2</title>
+</head>
+<body>
+<script>
+    let x = [2, 5, -9, 48, 25, 4, 8];
+    let first = 0;
+    let last = x.length - 1;
+    while (first < last) {
+        let b = x[first];
+        x[first] = x[last];
+        x[last] = b;
+        first++;
+        last--;
+    }
+    document.write(x);
+    // let y = Array();
+    // let count = x.length-1;
+    // for (let i=0;i<x.length;i++){
+    //     y[count]=x[i];
+    //     count--;
+    // }
+    // document.write(y);
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>practice5</title>
+</head>
+<body>
+<h1>Caro Game Simple</h1>
+<hr style="margin-left: 0;width: 280px">
+<div id="caro"></div>
+<button id="play" onclick="changeValue()">Change Value</button>
+<script>
+    let array = Array();
+    let data='';
+    let kc = '';
+    for (let i=0; i<5;i++){
+        array[i]= Array(0,0,0,0,0);
+    }
+
+    for (let i=0; i<15; i++){
+            kc+='&nbsp;'
+    }
+
+    Change();
+
+    function Change(){
+        for (let i=0; i<5;i++){
+            for (let j=0;j<5;j++){
+                data+=array[i][j]+ kc;
+            }
+            data+='<br><br><br>';
+        }
+        document.getElementById('caro').innerHTML=data;
+    }
+
+    function changeValue(){
+        let x = +prompt('x:');
+        let y = +prompt('y:');
+        array[x-1][y-1]='x';
+        data='';
+        Change();
+    }
+</script>
+</body>
+</html>

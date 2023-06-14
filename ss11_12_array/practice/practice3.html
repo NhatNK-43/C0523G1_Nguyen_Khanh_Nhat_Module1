@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>practice3</title>
+</head>
+<body>
+<script>
+    let value = +prompt('Enter a number:');
+    let numbers = [1, 8, 9, -6, 8, 15];
+    let array = Array();
+    let count = 0;
+    for (let i = 0; i < numbers.length; i++) {
+        if (value === numbers[i]) {
+            array[count] = i;
+            count++;
+        }
+    }
+    if (count === 0) {
+        alert('Value NOT found');
+    } else {
+        alert('Value ' + value + ' found at ' + array);
+    }
+</script>
+</body>
+</html>

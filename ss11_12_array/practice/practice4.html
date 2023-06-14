@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>practice4</title>
+</head>
+<body>
+<script>
+    //Viết một chương trình JavaScript để tìm giá trị lớn nhất trong mảng cho trước.
+    let numbers = [-3,5,10,8,15,-6,12];
+    let max = numbers[0];
+    for (let i=1; i<numbers.length;i++){
+        if(max<numbers[i]){
+            max = numbers[i];
+        }
+    }
+    alert('Max: '+ max);
+</script>
+</body>
+</html>
