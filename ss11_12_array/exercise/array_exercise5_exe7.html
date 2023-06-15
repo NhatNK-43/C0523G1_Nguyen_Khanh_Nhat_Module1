@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // Bài 7- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo
+    // phần tử số nguyên V. Chương trình kiểm tra xem V có thuộc mảng đã cho không, nếu V thuộc
+    // mảng đã cho xoá V khỏi mảng (Bản chất việc xoá ở đây tức là dịch phần tử ở bên phải V sang
+    // vị trí của V, và gán 0 cho phần tử cuối cùng của mảng)
+
+    let arr = [5, 3, 48, 75, 31, 6, 45, 12, 75, 10];
+    document.write('Array created: ');
+    document.write(arr.join(' ')+'<br>');
+
+    let element = +prompt("Enter the value of the element you want to remove");
+    for (let x=0; x<arr.length;x++){
+        if (element===arr[x]){
+            delete arr[x];
+            for (let i=x;i<arr.length;i++){
+                arr[i]=arr[i+1];
+            }
+            arr[arr.length-1]=0;
+        }
+    }
+    document.write('Array after removing element has value '+element+': ');
+    document.write(arr.join(' '));
+</script>
+</html>

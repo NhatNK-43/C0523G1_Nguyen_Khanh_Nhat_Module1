@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // Bài 4- Viết chương trình khởi tạo/nhập vào một mảng số nguyên và đảo
+    // ngược các phần tử trong mảng đó.
+    let n;
+    do {
+        n = +prompt("Enter the number of elements of the array: ");
+        if (n <= 0) {
+            alert('The number of elements of the array must be greater than 0. Please enter again!')
+        }
+    } while (n <= 0);
+
+    let arr = [];
+    for (let i = 0; i < n; i++) {
+        arr[i] = +prompt('Enter element ' + (i + 1));
+    }
+    document.write('Array entered:<br>');
+    document.write(arr.join(' '));
+
+    let first = 0;
+    let last = arr.length - 1;
+    while (first < last) {
+        let b = arr[first];
+        arr[first] = arr[last];
+        arr[last] = b;
+        first++;
+        last--;
+    }
+    document.write('<br>Array reversed:<br>');
+    document.write(arr.join(' '));
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // Bài 8- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử.
+    // Chương trình sắp xếp mảng theo thứ tự giảm dần và hiển thị ra mảng đã được sắp xếp.
+
+    let a = [5, 3, 48, 75, 31, 6, 45, 12, 75, 10];
+    document.write('Array created: ');
+    document.write(a.join(' ')+'<br>');
+
+    // arr.sort(function (a,b){
+    //     return b-a;
+    // });
+
+    let b;
+    for (let i=0;i<a.length;i++){
+        for (let j=i+1;j<a.length;j++){
+            if (a[i]<a[j]){
+                b=a[i];
+                a[i]=a[j];
+                a[j]=b;
+            }
+        }
+    }
+
+    document.write('<br>Array after sorting descending: ');
+    document.write(a.join(' '));
+</script>
+</html>

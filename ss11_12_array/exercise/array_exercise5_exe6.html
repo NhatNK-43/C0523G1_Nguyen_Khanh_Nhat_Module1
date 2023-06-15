@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // Bài 6- Viết chương trình khởi tạo/nhập vào một mảng số nguyên gồm 10 phần tử, nhập/tạo
+    // phần tử số nguyên V. Chương trình tìm xem V có nằm trong mảng số nguyên không? Nếu V
+    // thuộc mảng số nguyên thì in ra "V is in the array" còn lại in ra "V is not in the array".
+
+
+    let arr = [5, 3, 48, 75, 31, 6, 45, 12, 75, 10];
+    document.write('Array created: ');
+    document.write(arr.join(' ')+'<br>');
+
+    let element = +prompt("Enter element:");
+    let count=0;
+    for (let x=0; x<arr.length;x++){
+        if (element===arr[x]){
+            count++;
+        }
+    }
+    if (count===0){
+        document.write(element+' is not in the array.');
+    }else {
+        document.write(element+' is in the array.');
+    }
+</script>
+</html>
