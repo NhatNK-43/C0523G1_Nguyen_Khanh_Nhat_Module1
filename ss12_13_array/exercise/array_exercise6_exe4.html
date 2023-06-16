@@ -11,14 +11,22 @@
     // Bài 4: Viết một chương trình để đếm số từ trong một chuỗi
 
     let str = prompt('Enter string:');
-    let count = 0;
-    for (let i = 0; i < str.length; i++) {
-        if (str[i] === ' ' && str[i + 1] !== ' ') {
-            count++;
-        }
-    }
+    document.write('The string entered: '+str);
 
-    document.write('String entered: ' + str);
-    document.write('<br>There are ' + (count + 1) + ' words in the string.');
+    let count = 0;
+    let x=0;
+    while (str[x]===' '){
+        x++;
+    }
+    if (x<str.length){
+        for (let i = x; i < str.length-1; i++) {
+            if (str[i] === ' ' && str[i + 1] !== ' ') {
+                count++;
+            }
+        }
+        document.write('<br>There are ' + (count+1) + ' words in the string.');
+    }else {
+        document.write('<br>There are 0 words in the string.');
+    }
 </script>
 </html>
