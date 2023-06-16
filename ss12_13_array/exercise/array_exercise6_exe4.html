@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // Bài 4: Viết một chương trình để đếm số từ trong một chuỗi
+
+    let str = prompt('Enter string:');
+    let count = 0;
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === ' ' && str[i + 1] !== ' ') {
+            count++;
+        }
+    }
+
+    document.write('String entered: ' + str);
+    document.write('<br>There are ' + (count + 1) + ' words in the string.');
+</script>
+</html>

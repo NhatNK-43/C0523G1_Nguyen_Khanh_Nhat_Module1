@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // Bài 5: Viết một chương trình nhập vào 2 chuỗi, sau đó kiểm tra xem hai chuỗi
+    // có giống nhau hay không.
+
+    let a = prompt('Enter string a:');
+    let b = prompt('Enter string b:');
+    document.write('String a entered: ' + a);
+    document.write('<br>String a entered: ' + b);
+
+    let count = 0;
+    if (a.length===b.length){
+        for (let i = 0; i < a.length; i++) {
+            if (a[i] !== b[i]) {
+                break;
+            }
+            count++;
+        }
+        if (count===a.length){
+            document.write('<br>String a is the same as string b.');
+        }else {
+            document.write('<br>String a is NOT the same as string b.');
+        }
+    } else {
+        document.write('<br>String a is NOT the same as string b.');
+    }
+
+</script>
+</html>

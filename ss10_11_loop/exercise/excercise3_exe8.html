@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>exercise3_exe8</title>
+    <style>
+    </style>
+</head>
+<body>
+<button onclick="guess()" id="button">Play</button>
+<script>
+    function guess() {
+        let down = +prompt("Nhập cận trước:");
+        let up = +prompt("Nhập cận sau:");
+        let result;
+        let i=1;
+        result = Math.round(Math.random() * (up - down)) + down;
+        do {
+            let number = +prompt("Nhập số bạn muốn đoán trong khoảng từ "+down+' đến '+up);
+            if (number>result){
+                alert('Bạn nhập số lớn hơn. Bạn còn '+(3-i)+' lần đoán.');
+            } else if (number<result){
+                alert('Bạn nhập số bé hơn. Bạn còn '+(3-i)+'lần đoán.');
+            } else {
+                alert("Chúc mừng bạn đã dự đoán chính xác!");
+                break;
+            }
+            i++;
+        } while (i<=3);
+    }
+</script>
+</body>
+</html>

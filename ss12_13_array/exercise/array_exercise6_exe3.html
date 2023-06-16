@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    // Bài 3: Viết một chương trình khai báo một mảng ký tự và kích thước của mảng.
+    // VChương trình này đếm số ký tự số trong mảng.
+
+    let n;
+    do {
+        n = +prompt('Enter number of element:');
+        if (n <= 0) {
+            alert('The number of elements must be greater than 0. Please enter again!')
+        }
+    } while (n <= 0);
+
+    let char = [];
+    for (let i = 0; i < n; i++) {
+        char[i] = prompt('Element ' + i);
+    }
+
+    let count = 0;
+    for (let i = 0; i < char.length; i++) {
+        if (isNaN(char[i])===false){
+            count++;
+        }
+    }
+
+    document.write(char.join(', '));
+    document.write('<br>There are '+count+' numeric characters in the array.');
+
+</script>
+</html>
