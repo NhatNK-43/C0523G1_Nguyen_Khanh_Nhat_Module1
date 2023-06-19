@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let a = ['5', 's', '7', '/', '-', 'a', 'e', 's', 'c', 's','/'];
+    document.write('Array created: '+a.join(' '));
+
+    let char = prompt("Enter a character");
+    document.write('<br>There are characters '+countChar(a)+' "'+char+ '" in the array.');
+
+    function countChar(arr) {
+        let count=0;
+        for (let i=0;i<arr.length;i++){
+            if(char===arr[i]){
+                count++;
+            }
+        }
+        if(count>0){
+            return count;
+        } else return -1;
+    }
+</script>
+</body>
+
+</html>

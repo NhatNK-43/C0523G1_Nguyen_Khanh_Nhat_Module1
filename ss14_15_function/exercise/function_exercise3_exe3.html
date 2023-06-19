@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        let a = +prompt("Enter a:");
+        let b = +prompt("Enter b:");
+        compareNumbers(a,b);
+
+        function compareNumbers(a,b){
+            if (a>b){
+                return alert(a+" is greater than "+b);
+            } else if (a===b){
+                return alert(a+" is equal "+b);
+            }
+            else {
+                return alert('Sum: '+(a+b));
+            }
+        }
+    </script>
+</body>
+
+</html>

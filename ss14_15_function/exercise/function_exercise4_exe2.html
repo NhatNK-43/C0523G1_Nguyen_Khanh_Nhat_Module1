@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let radius = +prompt("Enter radius:");
+    alert("Area: "+areaCircle(radius)+
+        "\nPerimeter: "+perimeterCircle(radius));
+
+    function areaCircle(radius) {
+        return Math.PI*radius*radius;
+    }
+
+    function perimeterCircle(radius) {
+        return 2*Math.PI*radius;
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number1 = +prompt("Enter number1: ");
+    let number2 = +prompt("Enter number2: ");
+
+    permutationNumber(number1,number2)
+
+    function permutationNumber(num1,num2) {
+        let num = num1;
+        num1=num2;
+        num2=num;
+        alert("Number1: "+num1+"\nNumber2: "+num2);
+    }
+</script>
+</body>
+
+</html>

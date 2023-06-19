@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Enter number");
+    alert("Factorial of "+number+" is "+factorialNum(number))
+
+    function factorialNum(n) {
+        let fact = 1;
+        for (let i=1;i<=n;i++){
+            fact*=i;
+        }
+        return fact;
+    }
+</script>
+</body>
+
+</html>

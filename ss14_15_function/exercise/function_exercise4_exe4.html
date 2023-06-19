@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let char = prompt("Enter number");
+
+    if (isNum(char)){
+        alert(char+" is number.");
+    } else {
+        alert(char+" is NOT number.");
+    }
+
+    function isNum(n) {
+        // if (isNaN(n)) {
+        //     return false;
+        // } else {
+        //     return true;
+        // }
+
+        // return isNaN(n)?false:true;
+
+        return !isNaN(n);
+    }
+</script>
+</body>
+
+</html>
