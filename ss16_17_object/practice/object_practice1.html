@@ -8,55 +8,94 @@
 
 </body>
 <script>
-    let myDate = function (day, month, year){
-        this.day = day;
-        this.month = month;
-        this.year = year;
+    // let myDate = function (day, month, year){
+    //     this.day = day;
+    //     this.month = month;
+    //     this.year = year;
+    //
+    //     this.getDay = function (){
+    //         return this.day;
+    //     }
+    //     this.getMonth = function (){
+    //         return this.month;
+    //     }
+    //     this.getYear = function (){
+    //         return this.year;
+    //     }
+    //
+    //     this.setDay = function (day){
+    //         this.day = day;
+    //     }
+    //     this.setMonth = function (month){
+    //         this.month = month;
+    //     }
+    //     this.setYear =function (year){
+    //         this.year = year;
+    //     }
+    //
+    //     this.setDate = function (day,month,year){
+    //         this.setDay(day);
+    //         this.setMonth(month);
+    //         this.getYear(year);
+    //     }
+    //
+    //     this.toString = function (day,month,year){
+    //         return day+'/'+month+'/'+year;
+    //     }
+    // };
+    //
+    // let date = new myDate(4,3,1998);
+    //
+    // // date.setDay(11);
+    // // date.setMonth(6);
+    // // date.setYear(1998);
+    //
+    // date.setDate(11,6,1998);
+    //
+    // let day = date.getDay();
+    // let month = date.getMonth();
+    // let year = date.getYear();
+    //
+    // alert(date.toString(day,month,year));
 
-        this.getDay = function (){
+    class Date{
+        constructor(day,month,year) {
+            this.day =day;
+            this.month =month;
+            this.year=year;
+        }
+        getDay(){
             return this.day;
         }
-        this.getMonth = function (){
+        getMonth(){
             return this.month;
         }
-        this.getYear = function (){
+        getYear(){
             return this.year;
         }
 
-        this.setDay = function (day){
+        setDay(day){
             this.day = day;
         }
-        this.setMonth = function (month){
+        setMonth(month){
             this.month = month;
         }
-        this.setYear =function (year){
+        setYear(year){
             this.year = year;
         }
-
-        this.setDate = function (day,month,year){
-            this.setDay(day);
-            this.setMonth(month);
-            this.getYear(year);
+        setDate(day,month,year){
+            this.day = day;
+            this.month =month;
+            this.year=year;
         }
-
-        this.toString = function (day,month,year){
-            return day+'/'+month+'/'+year;
+        toString(){
+            return this.day+'/'+this.month+'/'+this.year;
         }
-    };
+    }
 
-    let date = new myDate(4,3,1998);
-
-    // date.setDay(11);
-    // date.setMonth(6);
-    // date.setYear(1998);
-
-    date.setDate(11,6,1998);
-
-    let day = date.getDay();
-    let month = date.getMonth();
-    let year = date.getYear();
-
-    alert(date.toString(day,month,year));
-
+    let date = new Date(6,11,1998);
+    document.write(date.toString());
+    date.setDate(4,3,1998);
+    document.write('<br>'+date.toString());
 </script>
 </html>

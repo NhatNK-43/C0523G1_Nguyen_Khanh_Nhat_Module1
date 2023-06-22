@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let Temperature = function (celsius) {
+        this.celsius = parseFloat(celsius);
+
+        this.celsiusToFahrenheit = function () {
+            return this.celsius * 1.8 + 32;
+        }
+
+        this.celsiusToKenvin = function () {
+            return this.celsius + 273;
+        }
+    }
+
+    let temperature = new Temperature(25);
+    //temperature.celsius = 25;
+    document.write('Celsius: ' + temperature.celsius);
+    document.write('<br>Fahrenheit: ' + temperature.celsiusToFahrenheit());
+    document.write('<br>Kenvin: ' + temperature.celsiusToKenvin());
+
+</script>
+</html>

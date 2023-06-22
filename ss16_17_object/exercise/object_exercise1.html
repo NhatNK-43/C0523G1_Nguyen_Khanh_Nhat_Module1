@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <canvas id="myCanvas" height="720" width="1080" style="border: 2px inset blue"></canvas><br>
+    <p style="font-size: 30px;color: blue">Area:
+        <span id="area" style="font-size: 30px;color: green"></span></p>
+    <p style="font-size: 30px;color: blue">Perimeter:
+        <span id="perimeter" style="font-size: 30px;color: green"></span></p>
+</body>
+<script>
+    function Rectangle (length,width){
+        this.length =length;
+        this.width = width;
+
+        this.calArea = function (){
+            return length*width;
+        }
+
+        this.calPerimeter = function (){
+            return 2*(length+width);
+        }
+
+        this.creatRectangle = function (){
+            let creatRectangle = document.getElementById('myCanvas');
+            let ctx=creatRectangle.getContext('2d');
+            ctx.fillStyle = "red";
+            ctx.fillRect(50,50,length,width);
+        }
+    }
+
+    let length = +prompt("Enter length:");
+    let width = +prompt("Enter width:");
+    let rectangle = new Rectangle(length,width);
+    rectangle.creatRectangle();
+    document.getElementById('area').innerText = rectangle.calArea();
+    document.getElementById('perimeter').innerText = rectangle.calPerimeter();
+
+
+</script>
+</html>
