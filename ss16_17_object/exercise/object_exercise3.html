@@ -3,191 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <style>
-        form {
-            border: 2px solid black;
-            width: 280px;
-            height: 500px;
-        }
-
-        table {
-            width: 280px;
-        }
-
-        td {
-            text-align: center;
-            width: 90px;
-        }
-
-        button {
-            width: 80px;
-        }
-    </style>
 </head>
 <body>
-<form>
-    <table>
-        <tr style="height: 25px">
-            <td colspan="2" style="color: red; text-align: left"><span id="status"></span></td>
-            <td colspan="1" style="text-align: right"><i id="battery"></i></td>
-        </tr>
-        <tr>
-            <td colspan="3" style="height: 375px"><textarea id="message" style="width: 260px; height: 300px"
-                                                            hidden></textarea></td>
-        </tr>
-        <tr style="height: 50px">
-            <td>
-                <button type="button" id="creatSend" onclick="nokia.creatSend(nokia.getBattery(), iphone)" hidden>Creat</button>
-            </td>
-            <td>
-                <button type="button" id="inbox" onclick="nokia.showInbox(nokia.getBattery())" hidden>Inbox</button>
-            </td>
-            <td>
-                <button type="button" id="outbox" onclick="nokia.showOutbox(nokia.getBattery())" hidden>Outbox</button>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <button type="button" id="showMessage" onclick="nokia.message(nokia.getBattery())" disabled>Message</button>
-            </td>
-            <td>
-                <button type="button" value="On" id="turnOnOff" onclick="nokia.turnOnOff()"
-                        style="width: 60px; height: 21px"></button>
-            </td>
-            <td>
-                <button type="button" id="check" onclick="nokia.checkStatus(nokia.getBattery())">Check</button>
-            </td>
-        </tr>
-    </table>
-</form>
-    <br><button type="button" id="charge" onclick="nokia.setBattery(100)">Charge</button>
-</body>
 <script>
-    class Mobile {
-        constructor(battery, draft, inbox,outbox) {
+    class MobiPhone {
+        constructor(battery, draft, inbox, outbox, status) {
             this.battery = battery;
+            this.draft = draft;
             this.inbox = inbox;
-            this.outbox= outbox;
+            this.outbox = outbox;
+            this.status = status;
         }
 
-        getBattery() {
-            return this.battery;
+        checkStatus() {
+            if (this.status) {
+                alert("The mobile is ON.")
+            } else {
+                alert("The mobile is OFF.")
+            }
+            this.battery--;
         }
 
-        getInbox() {
-            return this.inbox.join('\n');
-        }
-
-        getOutbox() {
-            return this.outbox.join('\n');
+        turnOn() {
+            if (this.status) {
+                alert("Điện thoại đã bật.")
+            } else {
+                this.status = true;
+                this.battery--;
+            }
         }
 
         setBattery(battery) {
             this.battery = battery;
-            document.getElementById('battery').innerText = this.battery+'%';
         }
 
-        setInbox(inbox) {
-            this.inbox.unshift(inbox);
-        }
-
-        setOutbox(outbox) {
-            this.outbox.unshift(outbox);
-        }
-
-        reset() {
-            document.getElementById('battery').hidden = true;
-            document.getElementById('turnOnOff').value = 'On';
-            document.getElementById('creatSend').hidden = true;
-            document.getElementById('inbox').hidden = true;
-            document.getElementById('outbox').hidden = true;
-            document.getElementById('status').innerText = '';
-            document.getElementById('message').hidden = true;
-            document.getElementById('showMessage').disabled = true;
-            document.getElementById('showMessage').hidden = false;
-            document.getElementById('check').hidden = false;
-        }
-
-        turnOnOff() {
-            if (document.getElementById('turnOnOff').value === 'On'
-            && this.getBattery()>0) {
-                document.getElementById('battery').hidden = false;
-                document.getElementById('battery').innerText = this.getBattery()+'%';
-                document.getElementById('turnOnOff').value = 'Off';
-                document.getElementById('showMessage').disabled = false;
-
+        setMessageDraft(message) {
+            if (this.status) {
+                this.draft.unshift(message);
+                this.battery--;
             } else {
-                this.reset();
+                alert("Điện thoại đang tắt.")
             }
         }
 
-        useBattery(battery) {
-            battery--;
-            this.setBattery(battery);
-            if (this.getBattery()===0){
-                this.reset();
+        sendMessage(mobilePhone, message) {
+            if (this.status) {
+                this.outbox.push(message); //hộp thư đi
+                mobilePhone.inbox.unshift(message) //hộp thư đến của điện thoại nhận
+                this.battery--;
             } else {
-                document.getElementById('battery').innerText = this.getBattery()+'%';
+                alert("Điện thoại đang tắt.")
             }
         }
-
-        checkStatus(battery) {
-            if (document.getElementById('turnOnOff').value === 'On') {
-                document.getElementById('status').innerText = 'Phone is off';
+        receiveMessage(message) {
+            if (this.status) {
+                this.inbox.unshift(message);
+                alert("Có tin nhắn mới");
+                this.battery--;
             } else {
-                document.getElementById('status').innerText = 'Phone is on';
+                alert("Điện thoại đang tắt.");
             }
-            this.useBattery(battery);
-        }
-
-        message(battery) {
-            document.getElementById('creatSend').hidden = false;
-            document.getElementById('inbox').hidden = false;
-            document.getElementById('outbox').hidden = false;
-            document.getElementById('showMessage').hidden = true;
-            document.getElementById('check').hidden = true;
-            document.getElementById('status').innerText = '';
-            document.getElementById('creatSend').innerText = 'Creat';
-            this.useBattery(battery);
-        }
-
-        creatSend(battery,mobile) {
-            if (document.getElementById('creatSend').innerText === 'Creat') {
-                document.getElementById('message').hidden = false;
-                document.getElementById('message').value = '';
-                document.getElementById('creatSend').innerText = 'Send';
-            } else {
-                this.setOutbox(document.getElementById('message').value);
-                mobile.setInbox(document.getElementById('message').value);
-                document.getElementById('message').value = 'Sent!';
-                document.getElementById('creatSend').innerText = 'Creat';
-            }
-            this.useBattery(battery);
-        }
-
-        showInbox(battery) {
-            document.getElementById('message').hidden = false;
-            document.getElementById('message').value = this.getInbox();
-            document.getElementById('creatSend').innerText = 'Creat';
-            this.useBattery(battery);
-        }
-
-        showOutbox(battery) {
-            document.getElementById('message').hidden = false;
-            document.getElementById('message').value = this.getOutbox();
-            document.getElementById('creatSend').innerText = 'Creat';
-            this.useBattery(battery);
-        }
-
-        sendMessage (message,mobile){
-
         }
     }
 
-    let nokia = new Mobile(1,[],[],[]);
-    nokia.setInbox('Tin nhan khuyen mai');
-    nokia.setInbox('Tin nhan quang cao');
+    let nokia = new MobiPhone(60, [], [], [], true)
+    let iphone = new MobiPhone(90, [], [], [], true)
 
-    let iphone = new Mobile();
+    // nokia.turnOn();
+    // nokia.checkStatus();
+    // nokia.checkStatus()
+    // nokia.setBattery(100)
+    // iphone.setMessageDraft("Hello")
+    nokia.receiveMessage("Tin nhắn khuyến mãi");
+    nokia.receiveMessage("Tin nhắn quảng cáo");
+    // nokia.sendMessage(iphone, 'Di cafe không?');
+    console.log('Nokia inbox: ', nokia.inbox);
+    // console.log('Nokia outbox: ', nokia.outbox);
+    // console.log('Iphone inbox: ', iphone.inbox);
 </script>
+</body>
 </html>

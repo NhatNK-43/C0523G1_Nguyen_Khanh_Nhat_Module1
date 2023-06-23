@@ -6,24 +6,25 @@
 </head>
 <body>
 <script>
-    let star1 = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
-    let star2 = ['Ursa Minor', 'Taurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
+    let star = ['Polaris', 'Aldebaran', 'Deneb', 'Vega', 'Altair', 'Dubhe', 'Regulus'];
+    let Constellation = ['Ursa Minor', 'Taurus', 'Cygnus', 'Lyra', 'Aquila', 'Ursa Major', 'Leo'];
 
     let enterStar = prompt('Enter a star:');
+    let a=[];
+    document.write(addStar(enterStar));
 
-    if (addStar(star1) === -1) {
-        alert("Not found Star.");
-    } else {
-        alert(star2[addStar(star1)]);
-    }
-
-    function addStar(star) {
-        for (let i = 0; i < star.length; i++) {
-            if (enterStar === star[i]) {
-                return i;
+    function addStar(enterStar) {
+        let keyWord= enterStar.trim().toLocaleLowerCase();
+        for (let index in star){
+            if (star[index].trim().toLocaleLowerCase().includes(keyWord)){
+                a.push(Constellation[index]);
             }
         }
-        return -1;
+        if (a.length>0){
+            return a.join(', ');
+        } else {
+            return -1;
+        }
     }
 </script>
 </body>
