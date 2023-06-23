@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Objects</title>
+</head>
+<body>
+<script>
+    class Apple{
+        constructor(weight) {
+            this.weight = weight;
+        }
+        getWeight(){
+            return this.weight;
+        }
+
+        setWeight(weight){
+            this.weight = weight;
+        }
+    }
+
+    class Human{
+        constructor(name,gender,weight) {
+            this.name = name;
+            this.gender = gender;
+            this.weight = weight;
+        }
+        getName(){
+            return this.name;
+        }
+
+        getGender(){
+            return this.gender;
+        }
+
+        getWeight(){
+            return this.weight;
+        }
+
+        setName(name){
+            this.name = name;
+        }
+
+        setGender(gender){
+            this.gender = gender;
+        }
+
+       setWeight(weight){
+            this.weight = weight;
+        }
+
+        isMale(gender){
+            if (gender){
+                return 'Male';
+            }
+            else {
+                return 'Female';
+            }
+        }
+
+        checkApple(apple){
+            return apple.getWeight() > 0;
+        }
+
+        say(message){
+            console.log(message);
+        }
+
+        eatApple(apple){
+            if (this.checkApple(apple)){
+                this.setWeight(this.getWeight()+1);
+                apple.setWeight(apple.getWeight()-1);
+                this.say("So delicious!");
+            }
+            else {
+                this.say("The apple is over");
+            }
+        }
+    }
+
+    let person1= new Human('Nguyen Van A',true,50);
+    let apple = new Apple(10);
+    console.log('Name: '+person1.getName());
+    console.log('Gender: '+person1.isMale(person1.getGender()));
+    console.log('Weight: '+person1.getWeight());
+    console.log('Weight apple: '+apple.getWeight());
+    person1.eatApple(apple);
+    console.log('Weight human(after eating apple): '+person1.getWeight());
+    console.log('Weight apple: '+apple.getWeight()+'\n');
+    console.log('\n');
+
+    person1.setName('Nguyen Thi B');
+    person1.setGender(false);
+    person1.setWeight(47);
+    apple.setWeight(5);
+    console.log('Name: '+person1.getName());
+    console.log('Gender: '+person1.isMale(person1.getGender()));
+    console.log('Weight: '+person1.getWeight());
+    console.log('Weight apple: '+apple.getWeight());
+    person1.eatApple(apple);
+    console.log('Weight human(after eating apple): '+person1.getWeight());
+    console.log('Weight apple: '+apple.getWeight());
+</script>
+</body>
+</html>
