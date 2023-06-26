@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button id="btn" onclick="chon()">Chọn</button>
+</body>
+<script>
+    let menu = ['Cafe', 'Cam vắt', 'Nước ép cà rốt', 'Nước ép cà chua',
+        'Nước lọc', 'Nước dừa', 'Thoát gọi món'];
+    for (let i = 0; i < menu.length; i++) {
+        document.write('<br>' + (i + 1) + '. ' + menu[i]);
+    }
+
+    function chon() {
+        let thanhTien = [];
+        let luaChon;
+        let donGia;
+        let sum = 0;
+        do {
+            do {
+                luaChon = +prompt("Nhập lựa chọn của bạn: ");
+                if (luaChon < 1 || luaChon > 7) {
+                    alert("Lựa chọn không đúng. Vui lòng chọn lại!")
+                }
+            } while (luaChon < 1 || luaChon > 7);
+            switch (luaChon) {
+                case 1:
+                    donGia = 12000;
+                    break;
+                case 2:
+                case 3:
+                case 4:
+                    donGia = 20000;
+                    break;
+                case 5:
+                    donGia = 10000;
+                    break;
+                case 6:
+                    donGia = 17000;
+                    break;
+            }
+            if (luaChon !== 7) {
+                let soLuong;
+                do{
+                    soLuong = +prompt('Nhập số lượng ' + menu[luaChon - 1]);
+                    if (soLuong ===0){
+                        alert('Bạn chưa nhập số lượng. Vui lòng nhập lại.');
+                    }
+                } while (soLuong===0);
+                thanhTien.push(soLuong * donGia);
+            }
+        } while (luaChon !== 7)
+        if (thanhTien.length === 0) {
+            alert('Bạn chưa chọn món.')
+        } else {
+            for (let i = 0; i < thanhTien.length; i++) {
+                sum += thanhTien[i];
+            }
+            alert('Số tiền bạn phải thanh toán: ' + sum);
+        }
+    }
+
+</script>
+</html>

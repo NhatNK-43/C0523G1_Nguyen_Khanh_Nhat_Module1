@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let numerator = [5, 6, 8, 2, 14];
+    let denominator = [6, 9, 4, 8, 3];
+    let maxFraction = 0;
+    let max = numerator[0] / denominator[0];
+    for (let i = 0; i < numerator.length; i++) {
+        if (max < numerator[i] / denominator[i]) {
+            max = numerator[i] / denominator[i]
+            maxFraction = i;
+        }
+    }
+
+    document.write('Array numerator: ' + numerator.join(', '));
+    document.write('<br>');
+    document.write('Array denominator: ' + denominator.join(', '));
+    document.write('<br>');
+    document.write('maxFraction(numerator,denominator): ' + maxFraction);
+</script>
+</html>

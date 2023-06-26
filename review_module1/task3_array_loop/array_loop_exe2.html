@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let a = [1, 5, 6, 9, 5, 46, 7, 5];
+    let b = [9, 2, 8, 6, 8, 15, 20, 34, 5, 2];
+    let c = [];
+    for (let i = 0; i < b.length; i++) {
+        if (missingValue(b[i])&&check(b[i])) {
+            c.push(b[i]);
+        }
+    }
+
+    function missingValue(n) {
+        for (let i = 0; i < a.length; i++) {
+            if (n === a[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    function check(n) {
+        for (let i = 0; i < c.length; i++) {
+            if (n === c[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    document.write('Array a: ' + a.join(', '));
+    document.write('<br>');
+    document.write('Array b: ' + b.join(', '));
+    document.write('<br>');
+    document.write('MissingArray(a,b): ' + c.join(', '));
+</script>
+</html>

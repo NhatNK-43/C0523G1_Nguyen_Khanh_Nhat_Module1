@@ -92,7 +92,7 @@
         }
 
         setOutbox(outbox) {
-            this.outbox.unshift(outbox);
+            this.outbox.unshift(outbox+'\n');
         }
 
         reset() {
@@ -115,7 +115,6 @@
                 document.getElementById('battery').innerText = this.getBattery()+'%';
                 document.getElementById('turnOnOff').value = 'Off';
                 document.getElementById('showMessage').disabled = false;
-
             } else {
                 this.reset();
             }
@@ -133,11 +132,14 @@
 
         checkStatus(battery) {
             if (document.getElementById('turnOnOff').value === 'On') {
+                document.getElementById('battery').hidden = false;
                 document.getElementById('status').innerText = 'Phone is off';
+                document.getElementById('battery').innerText = this.getBattery()+'%';
             } else {
                 document.getElementById('status').innerText = 'Phone is on';
+                document.getElementById('battery').innerText = this.getBattery()+'%';
+                this.useBattery(battery);
             }
-            this.useBattery(battery);
         }
 
         message(battery) {
@@ -157,9 +159,11 @@
                 document.getElementById('message').value = '';
                 document.getElementById('creatSend').innerText = 'Send';
             } else {
+                document.getElementById('message').hidden = false;
                 this.setOutbox(document.getElementById('message').value);
                 mobile.setInbox(document.getElementById('message').value);
-                document.getElementById('message').value = 'Sent!';
+                document.getElementById('status').innerText = 'Sent!';
+                document.getElementById('message').value = '';
                 document.getElementById('creatSend').innerText = 'Creat';
             }
             this.useBattery(battery);
@@ -178,16 +182,12 @@
             document.getElementById('creatSend').innerText = 'Creat';
             this.useBattery(battery);
         }
-
-        sendMessage (message,mobile){
-
-        }
     }
 
-    let nokia = new Mobile(1,[],[],[]);
+    let nokia = new Mobile(8,[],[],[]);
     nokia.setInbox('Tin nhan khuyen mai');
     nokia.setInbox('Tin nhan quang cao');
 
-    let iphone = new Mobile();
+    let iphone = new Mobile(8,[],[],[]);
 </script>
 </html>

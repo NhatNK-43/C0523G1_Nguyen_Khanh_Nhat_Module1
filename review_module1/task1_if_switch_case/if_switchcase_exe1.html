@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let wage=+prompt("Enter wage:");
+    let tax;
+    if (wage>=15){
+        tax = wage*0.2;
+    }else if (wage>=7){
+        tax=wage*0.1;
+    }else {
+        tax=wage*0.05;
+    }
+    document.write('Tax: '+tax);
+</script>
+</html>
