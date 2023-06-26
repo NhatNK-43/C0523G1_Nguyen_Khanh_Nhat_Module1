@@ -8,15 +8,17 @@
 
 </body>
 <script>
-    let wage=+prompt("Enter wage:");
+    let salary=+prompt("Enter salary:");
     let tax;
-    if (wage>=15000000){
-        tax = wage*0.2;
-    }else if (wage>=7000000){
-        tax=wage*0.1;
+    if (salary>=15000000){
+        tax = salary*0.2;
+    }else if (salary>=7000000){
+        tax=salary*0.1;
     }else {
-        tax=wage*0.05;
+        tax=salary*0.05;
     }
-    document.write('Tax: '+tax);
+    document.write('Salary: '+salary);
+    document.write('<br>Tax: '+tax);
+    document.write('<br>Net salary: '+(salary-tax));
 </script>
 </html>
