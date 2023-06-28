@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let str1 = prompt("Enter string 1:");
+    let str2 = prompt("Enter string 2:");
+    let string = '';
+    document.write('String 1 entered: ' + str1);
+    document.write('<br>String 2 entered: ' + str2);
+    document.write(`<br/>There are ${commonCharacterCount(str1, str2)} common characters.`);
+
+    function commonCharacterCount(str1, str2) {
+        for (let i = 0; i < str1.length; i++) {
+            for (let j = 0; j < str2.length; j++) {
+                if (str1[i] === str2[j] && checkInString(str1[i])) {
+                    string += str1[i];
+                }
+            }
+        }
+        return string.length;
+    }
+
+    function checkInString(char) {
+        for (let i = 0; i < string.length; i++) {
+            if (char === string[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+</html>

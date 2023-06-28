@@ -8,22 +8,39 @@
 
 </body>
 <script>
-    let h = +prompt('Enter height:');
-    for (let i = 1; i < h; i++) {
-        for (let j = 1; j <= h - i; j++) {
-            document.write('&nbsp;&nbsp;');
+    let h;
+    do {
+        h = +prompt('Enter height:');
+        if (h<=0 || isNaN(h)){
+            alert('Please enter again!');
         }
-        document.write('*');
-        for (let j = 1; j <= i * 2 - 3; j++) {
-            document.write('&nbsp;&nbsp;');
-        }
-        if(i>1){
-            document.write('*');
+    } while (h <= 0 || isNaN(h))
+
+    for (let row = 1;row<=h;row++){
+        for (let col=1;col<=2*h-1;col++){
+            if (col===h-row+1|col===h+row-1||row===h){
+                document.write('*');
+            }else {
+                document.write('&nbsp;&nbsp;');
+            }
         }
         document.write('<br>');
     }
-    for (let i=1;i<=h*2-1;i++){
-        document.write('*');
-    }
+    // for (let row = 1; row < h; row++) {
+    //     for (let col = 1; col <= h - row; col++) {
+    //         document.write('&nbsp;&nbsp;');
+    //     }
+    //     document.write('*');
+    //     for (let col = 1; col <= row * 2 - 3; col++) {
+    //         document.write('&nbsp;&nbsp;');
+    //     }
+    //     if(row>1){
+    //         document.write('*');
+    //     }
+    //     document.write('<br>');
+    // }
+    // for (let row=1;row<=h*2-1;row++){
+    //     document.write('*');
+    // }
 </script>
 </html>

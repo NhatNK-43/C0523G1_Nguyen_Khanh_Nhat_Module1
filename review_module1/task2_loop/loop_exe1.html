@@ -8,20 +8,22 @@
 
 </body>
 <script>
-    let h=+prompt('Enter height:');
-    for (let i=1;i<h;i++){
-        document.write('*');
-        for (let j=2;j<i;j++){
-            document.write('&nbsp;&nbsp;');
+    let h;
+    do {
+        h = +prompt('Enter height:');
+        if (h<=0 || isNaN(h)){
+            alert('Please enter again!');
         }
-        if (i>1){
-            document.write('*');
+    } while (h <= 0 || isNaN(h))
+    for (let row =1;row<=h;row++){
+        for (let col =1;col<=row;col++){
+            if(col===1||col===row||row===h){
+                document.write('*');
+            } else {
+                document.write('&nbsp;&nbsp;');
+            }
         }
         document.write('<br>');
     }
-    for (let i=1;i<=h;i++){
-        document.write('*');
-    }
-
 </script>
 </html>

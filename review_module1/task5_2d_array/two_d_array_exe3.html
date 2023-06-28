@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let m;
+    let n;
+    let arr = [];
+    let sum = 0;
+    do {
+        m = +prompt("Enter row:");
+        if (m <= 0 || isNaN(m)) {
+            alert('Row must be greater than 0. Please enter again!');
+        }
+    } while (m <= 0 || isNaN(m));
+
+    do {
+        n = +prompt("Enter column:");
+        if (n <= 0) {
+            alert('Column must be greater than 0. Please enter again!');
+        }
+    } while (n <= 0 || isNaN(m));
+
+    addArray(m, n);
+    showArray(arr);
+    document.write('<br>Max: '+maxArray(arr));
+    document.write('<br>Min: '+minArray(arr));
+
+    function addArray(m, n) {
+        for (let i = 0; i < m; i++) {
+            arr[i] = [];
+            for (let j = 0; j < n; j++) {
+                arr[i][j] = +prompt(`arr[${i}][${j}] = `);
+            }
+        }
+    }
+
+    function showArray(arr) {
+        document.write('Array entered:<br>');
+        for (let i = 0; i < arr.length; i++) {
+            document.write(arr[i].join(' '));
+            document.write('<br>');
+        }
+    }
+
+    function maxArray(arr) {
+         let max = arr[0][0];
+         for (let i=0; i<arr.length;i++){
+             for (let j=0;j<arr[i].length;j++){
+                 if (max<arr[i][j]){
+                     max=arr[i][j];
+                 }
+             }
+         }
+         return max;
+    }
+
+    function minArray(arr) {
+        let min = arr[0][0];
+        for (let i=0; i<arr.length;i++){
+            for (let j=0;j<arr[i].length;j++){
+                if (min>arr[i][j]){
+                    min=arr[i][j];
+                }
+            }
+        }
+        return min;
+    }
+</script>
+</body>
+</html>

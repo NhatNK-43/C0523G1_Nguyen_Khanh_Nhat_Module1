@@ -9,19 +9,46 @@
 </body>
 <script>
     let str = prompt("Enter a string:");
-    let result = [];
-    console.log('string:' + str);
-    console.log('string:' +standardize(str));
+    document.write('String entered: ' + str);
+    document.write('<br>String standardized: '+standardize(str));
+    document.write('<br>Longest word: '+longestWord(standardize(str)));
 
 
     function standardize(str) {
-        let string = str.trim().toLocaleLowerCase().split(' ');
-        for (let i=0;i<string.length;i++){
-            if (string[i]===' '){
-
+        let string = str.trim().toLocaleLowerCase();
+        let result = '';
+        let count = 0;
+        let charUpper = true;
+        for (let i = 0; i < string.length; i++) {
+            if (string[i] === " ") {
+                count++;
+                charUpper = true;
+            } else {
+                if (charUpper) {
+                    result += string[i].toLocaleUpperCase();
+                } else {
+                    result += string[i];
+                }
+                count = 0;
+                charUpper = false;
+            }
+            if (count === 1) {
+                result += ' ';
             }
         }
         return result;
     }
+
+    function longestWord(str) {
+        let arr = str.split(' ');
+        let word = arr[0];
+        for (let i = 1; i < arr.length; i++) {
+            if (word.length<arr[i].length){
+                word=arr[i];
+            }
+        }
+        return word;
+    }
+
 </script>
 </html>

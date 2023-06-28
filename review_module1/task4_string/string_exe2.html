@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+</body>
+<script>
+    let str = prompt("Enter a string:");
+    let string = '';
+    document.write('String entered: ' + str);
+   document.write(`<br/>There are ${differentSymbolsNaive(str)} different characters in the string`);
+
+    function differentSymbolsNaive(str){
+        for (let i=0;i<str.length;i++){
+            if (check(str[i])){
+                string +=str[i];
+            }
+        }
+        return string.length;
+    }
+
+    function check(n) {
+        for (let i = 0; i < string.length; i++) {
+            if (n === string[i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+</html>

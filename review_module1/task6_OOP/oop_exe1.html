@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        table, tr, td, th {
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+<form>
+    <div id="editInformation"></div>
+    <div>
+        <button type="button" onclick="addStudent()">Thêm mới học viên</button>
+        <button type="button" onclick="editStudent()">Sửa thông tin học viên</button>
+        <button type="button" onclick="removeStudent()">Xóa học viên</button>
+    </div>
+    <br>
+    <div id="table" style="float: left"></div>
+    <div style="float: right">
+
+    </div>
+</form>
+<script>
+    class Student {
+        constructor(id, name, classes, email, date,module) {
+            this.id = id;
+            this.name = name;
+            this.classes = classes;
+            this.email = email;
+            this.date = date;
+            this.module=module;
+        }
+    }
+
+    let arrStudent = [];
+    let student1 = new Student('A1', 'Nguyen Van A', 'C1022G1', 'nguyenvana@gmail.com', '01/01/2000',1);
+    let student2 = new Student('A2', 'Nguyen Van B', 'C1022G1', 'nguyenvanB@gmail.com', '01/01/2000',1);
+    let student3 = new Student('A3', 'Nguyen Van C', 'C1022G1', 'nguyenvanC@gmail.com', '01/01/2000',1);
+    arrStudent.push(student1, student2, student3);
+    document.getElementById('table').innerHTML = showStudent(arrStudent);
+    function addStudent() {
+        let id;
+        let name;
+        do {
+            id = prompt("Nhập mã sinh viên:");
+            if (checkElement(id)){
+                alert("Mã sinh viên đã tồn tại. Vui lòng nhập mã khác!")
+            }
+            if (id===''){
+                alert("Bạn chưa nhập mã sinh viên!")
+            }
+        } while (checkElement(id)||id==='');
+
+        do {
+            name = prompt("Nhập họ và tên:");
+            if (name===''){
+                alert("Bạn chưa nhập tên sinh viên!")
+            }
+        } while (name==='');
+        let classes = prompt("Nhập lớp:");
+        let email = prompt("Nhập email:");
+        let date = prompt("Nhập ngày sinh:");
+        let module = +prompt("Module:");
+        let student = new Student(id, name, classes, email, date,module);
+        arrStudent.push(student);
+        document.getElementById('table').innerHTML = showStudent(arrStudent);
+    }
+
+    function removeStudent() {
+        let idStudent = prompt("Nhập mã sinh viên cần xóa:");
+        if (checkElement(idStudent)) {
+            for (let i = 0; i < arrStudent.length; i++) {
+                if (idStudent === arrStudent[i].id) {
+                    arrStudent.splice(i, 1);
+                }
+            }
+            document.getElementById('table').innerHTML = showStudent(arrStudent);
+        } else {
+            alert('Không tim thấy sinh viên có mã:' + idStudent);
+        }
+    }
+
+    function editStudent() {
+        let idStudent = prompt("Nhập mã sinh viên cần sửa:");
+        if (checkElement(idStudent)) {
+            for (let i = 0; i < arrStudent.length; i++) {
+                if (idStudent === arrStudent[i].id) {
+                    let choice;
+                    do {
+                        do {
+                            choice = +prompt("Chọn thông tin cần sửa:\n1. Tên\n2. Lớp\n3. Email\n4. Ngày sinh\n5. Module\n6. Lưu thông tin");
+                            if (choice <= 0 || choice > 6 || isNaN(choice)) {
+                                alert("Lựa chọn không hợp lệ. Vui lòng nhập lại!");
+                            }
+                        } while (choice <= 0 || choice > 6 || isNaN(choice))
+                        switch (choice) {
+                            case 1:
+                                arrStudent[i].name = prompt("Tên cũ: " + arrStudent[i].name + "\nTên mới:");
+                                break;
+                            case 2:
+                                arrStudent[i].classes = prompt("Lớp cũ: " + arrStudent[i].classes + "\nLớp mới:");
+                                break;
+                            case 3:
+                                arrStudent[i].email = prompt("Email cũ: " + arrStudent[i].email + "\nEmail mới:");
+                                break;
+                            case 4:
+                                arrStudent[i].date = prompt("Ngày sinh cũ: " + arrStudent[i].date + "\nNgày sinh mới:");
+                                break;
+                            case 5:
+                                arrStudent[i].date = prompt("Ngày sinh cũ: " + arrStudent[i].date + "\nNgày sinh mới:");
+                                break;
+                        }
+                        if (choice === 6) {
+                            alert("Đã sửa thông tin thành công!");
+                        }
+                    } while (choice !== 6);
+                }
+            }
+            document.getElementById('table').innerHTML = showStudent(arrStudent);
+        } else {
+            alert('Không tim thấy sinh viên có mã:' + idStudent);
+        }
+    }
+
+    function checkElement(idStudent) {
+        for (let i = 0; i < arrStudent.length; i++) {
+            if (arrStudent[i].id === idStudent) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function showStudent(arrStudent) {
+        let showHTML = '';
+        showHTML += '<table>' +
+            '<thead>' +
+            '<tr>' +
+            '<th>Mã học viên</th>' +
+            '<th>Tên</th>' +
+            '<th>Lớp</th>' +
+            '<th>Email</th>' +
+            '<th>Ngày sinh</th>' +
+            '<th>Module</th>' +
+            '</tr>' +
+            '</thead>' +
+            '<tbody>';
+        for (let i = 0; i < arrStudent.length; i++) {
+            showHTML += '<tr>' +
+                '<td>' + arrStudent[i].id + '</td>' +
+                '<td>' + arrStudent[i].name + '</td>' +
+                '<td>' + arrStudent[i].classes + '</td>' +
+                '<td>' + arrStudent[i].email + '</td>' +
+                '<td>' + arrStudent[i].date + '</td>' +
+                '<td>' + arrStudent[i].module + '</td>' +
+                '</tr>'
+        }
+
+        showHTML += '</tbody>';
+        return showHTML;
+    }
+
+    function showEdit(){
+
+    }
+
+</script>
+</body>
+</html>
